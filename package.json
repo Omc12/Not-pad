@@ -1,0 +1,57 @@
+{
+  "name": "not-pad",
+  "version": "0.0.5",
+  "description": "Just a normal notepad app that's on its way to get better.",
+  "author": "Not ML",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "mocha",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build": "npm run dist"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.16.0",
+    "axios": "^1.7.2",
+    "electron-settings": "^4.0.4",
+    "electron-store": "^10.0.0",
+    "electron-updater": "^6.2.1",
+    "python-shell": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "electron": "^31.0.2",
+    "electron-builder": "^24.13.3",
+    "mocha": "^9.0.0"
+  },
+  "build": {
+    "appId": "com.NotML.notepad-app",
+    "productName": "Not-pad",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "public/index.html",
+      "public/styles.css",
+      "public/script.js",
+      "browser/main.py",
+      "voice_recognition/voiceRecognition.py",
+      "app.py",
+      "main.cjs",
+      "preload.js"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "assets/notepad-icon.ico"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="notepad">
+        <div class="menu-bar">
+            <div class="menu">
+                File
+                <div class="dropdown">
+                    <div class="menu-item" onclick="newFile()">New</div>
+                    <div class="menu-item" onclick="openFile()">Open...</div>
+                    <div class="menu-item" onclick="saveFile()">Save</div>
+                    <div class="menu-item" onclick="saveFileAs()">Save As...</div>
+                </div>
+            </div>
+            <div class="menu">
+                Edit
+                <div class="dropdown">
+                    <div class="menu-item" onclick="cut()">Cut</div>
+                    <div class="menu-item" onclick="copy()">Copy</div>
+                    <div class="menu-item" onclick="paste()">Paste</div>
+                    <div class="menu-item" onclick="undo()">Undo</div>
+                    <div class="menu-item" onclick="redo()">Redo</div>
+                    <div class="menu-item" onclick="showFindReplaceModal()">Find and Replace...</div>
+                </div>
+            </div>
+            <div class="menu">
+                View
+                <div class="dropdown">
+                    <div class="menu-item" onclick="toggleStatusBar()">Toggle Status Bar</div>
+                    <div class="menu-item" onclick="showPreferencesModal()">Preferences</div>
+                </div>
+            </div>
+            <div class="menu">
+                Help
+                <div class="dropdown">
+                    <div class="menu-item" onclick="about()">About Notepad</div>
+                </div>
+            </div>
+            <div class="menu">
+                Extra Tools
+                <div class="dropdown">
+                    <div class="menu-item" onclick="openCalculator()">Calculator</div>
+                    <div class="menu-item" id="openDictationWindowButton">Start Dictation</div>
+                    <div class="menu-item" id="openBrowserButton">Open Browser</div> <!-- Modified button -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'tab1')">Untitled 1</button>
+            <button class="add-tab" onclick="addTab()">+</button>
+        </div>
+        <div class="tab-content active" id="tab1">
+            <textarea oninput="updateStatusBar(this)"></textarea>
+            <div class="status-bar">Ln 1, Col 1</div>
+        </div>
+    </div>
+    <input type="file" id="file-input" style="display: none;" onchange="handleFileOpen(event)">
+
+    <!-- Find and Replace Modal -->
+    <div id="findReplaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeFindReplaceModal()">&times;</span>
+            <h2>Find and Replace</h2>
+            <input type="text" id="findText" placeholder="Find">
+            <input type="text" id="replaceText" placeholder="Replace with">
+            <div>
+                <input type="checkbox" id="caseSensitive"> Case Sensitive
+                <input type="checkbox" id="regexSearch"> Regex Search
+            </div>
+            <button onclick="findNext()">Find Next</button>
+            <button onclick="replace()">Replace</button>
+            <button onclick="replaceAll()">Replace All</button>
+        </div>
+    </div>
+
+    <!-- Preferences Modal -->
+    <div id="preferencesModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePreferencesModal()">&times;</span>
+            <h2>Preferences</h2>
+            <div>
+                <label for="fontSize">Font Size:</label>
+                <input type="number" id="fontSize" value="14">
+            </div>
+            <div>
+                <label for="tabWidth">Tab Width:</label>
+                <input type="number" id="tabWidth" value="4">
+            </div>
+            <button onclick="savePreferences()">Save</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

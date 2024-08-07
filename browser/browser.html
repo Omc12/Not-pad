@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="browser.css">
+    <title>Not-pad Browser</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="toolbar">
+        <button id="backButton">Back</button>
+        <button id="forwardButton">Forward</button>
+        <button id="reloadButton">Reload</button>
+        <input type="text" id="urlInput" style="width: 300px;">
+        <button id="goButton">Go</button>
+    </div>
+    <iframe id="webView" style="width: 100%; height: calc(100% - 40px); border: none;"></iframe>
+    <script>
+        const backButton = document.getElementById("backButton");
+        const forwardButton = document.getElementById("forwardButton");
+        const reloadButton = document.getElementById("reloadButton");
+        const urlInput = document.getElementById("urlInput");
+        const goButton = document.getElementById("goButton");
+        const webView = document.getElementById("webView");
+
+        backButton.addEventListener("click", () => {
+            webView.contentWindow.history.back();
+        });
+
+        forwardButton.addEventListener("click", () => {
+            webView.contentWindow.history.forward();
+        });
+
+        reloadButton.addEventListener("click", () => {
+            webView.contentWindow.location.reload();
+        });
+
+        goButton.addEventListener("click", () => {
+            const url = urlInput.value;
+            webView.src = url;
+        });
+
+        urlInput.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                const url = urlInput.value;
+                webView.src = url;
+            }
+        });
+    </script>
+</body>
+</html>

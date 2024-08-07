@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+}
+
+#toolbar {
+    background-color: rgb(41, 41, 41);
+    padding: 10px;
+    border-radius: 8px;
+    border-style: none;
+}
+
+#backButton {
+    color: azure;
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    border-radius: 6px;
+    border-style: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#forwardButton {
+    color: azure;
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    border-radius: 6px;
+    border-style: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#reloadButton {
+    color: azure;
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    border-radius: 6px;
+    border-style: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#goButton {
+    color: azure;
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    border-radius: 6px;
+    border-style: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#urlInput {
+    color: azure;
+    background-color: rgb(63, 62, 62);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    border-radius: 6px;
+    border-style: none;
+    padding: 8px;
+    margin: 5px;
+}
